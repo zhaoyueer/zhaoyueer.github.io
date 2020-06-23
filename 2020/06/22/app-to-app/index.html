@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="唤端app之间的跳转简称唤端。 方案URL Schemescheme 标示资源访问的方式。常见的scheme有http&#x2F;https&#x2F;ftp等。而在IOS&#x2F;Andriod中，scheme相当于用哪个app打开URL。 1&lt;a href&#x3D;&quot;tel:&#x2F;&#x2F;18511111111&quot; &#x2F;&gt; &#x2F;&#x2F; IOS中唤起拨号程序  Scheme 注册需要在app里事先向系统注册自己的Scheme，才能让app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="唤端">
+<meta property="og:url" content="http://yoursite.com/2020/06/22/app-to-app/index.html">
+<meta property="og:site_name" content="Abby_Peanuts">
+<meta property="og:description" content="唤端app之间的跳转简称唤端。 方案URL Schemescheme 标示资源访问的方式。常见的scheme有http&#x2F;https&#x2F;ftp等。而在IOS&#x2F;Andriod中，scheme相当于用哪个app打开URL。 1&lt;a href&#x3D;&quot;tel:&#x2F;&#x2F;18511111111&quot; &#x2F;&gt; &#x2F;&#x2F; IOS中唤起拨号程序  Scheme 注册需要在app里事先向系统注册自己的Scheme，才能让app">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-22T09:18:13.000Z">
+<meta property="article:modified_time" content="2020-06-23T07:23:23.190Z">
+<meta property="article:author" content="Abby">
+<meta property="article:tag" content="h5，mobile">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/22/app-to-app/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>唤端 | Abby_Peanuts</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Abby_Peanuts</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/22/app-to-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Abby">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abby_Peanuts">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          唤端
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-22 17:18:13" itemprop="dateCreated datePublished" datetime="2020-06-22T17:18:13+08:00">2020-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-23 15:23:23" itemprop="dateModified" datetime="2020-06-23T15:23:23+08:00">2020-06-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="唤端"><a href="#唤端" class="headerlink" title="唤端"></a>唤端</h1><p>app之间的跳转简称唤端。</p>
+<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><h2 id="URL-Scheme"><a href="#URL-Scheme" class="headerlink" title="URL Scheme"></a>URL Scheme</h2><p>scheme 标示资源访问的方式。常见的scheme有http/https/ftp等。而在IOS/Andriod中，scheme相当于用哪个app打开URL。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"tel://18511111111"</span> /&gt; <span class="comment">// IOS中唤起拨号程序</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Scheme-注册"><a href="#Scheme-注册" class="headerlink" title="Scheme 注册"></a>Scheme 注册</h4><p>需要在app里事先向系统注册自己的Scheme，才能让app通过Scheme方式唤起。</p>
+<p><strong>系统只负责根据Scheme唤起对应的app，至于打开app之后的行为，需要app解析URL参数作出相应处理</strong></p>
+<h4 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h4><p>不适应Android的Chrome及基于Chrome内核浏览器直接访问</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>兼容性好</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>无法准确判断是否唤起成功。</li>
+<li>如果用户没有安装对应的app，那么尝试跳转后在浏览器中会没有任何反应。甚至在一些webview里还会跳到一个类似 <strong>无法打开xxxx</strong> 这样的错误页面或者错误弹窗。</li>
+<li>在很多浏览器和webview中会有一个弹窗提示是否打开对应app，会导致用户流失。</li>
+<li>有URL Scheme劫持风险。比如某不知名app也向系统注册了 <code>xxx://</code> 这个scheme，唤起流量可能就会被劫持到这个app里。</li>
+<li>很容易被屏蔽，app很容易拦截掉通过URL Scheme发起的跳转。</li>
+</ul>
+<h2 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h2><p>谷歌定制版的URL Scheme。本质与URL Scheme区别不大，<a href="https://developer.chrome.com/multidevice/android/intents?spm=ata.13261165.0.0.d54f54a3toRfWr" target="_blank" rel="noopener">构造链接</a>方式不同。</p>
+<h4 id="适用性-1"><a href="#适用性-1" class="headerlink" title="适用性"></a>适用性</h4><p>仅Android的Chrome及基于Chrome内核浏览器。</p>
+<h2 id="Universal-Link"><a href="#Universal-Link" class="headerlink" title="Universal Link"></a>Universal Link</h2><p>IOS 9 中引入的功能，可以直接通过https协议的链接来打开app，如果没有安装则打开对应h5页面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"https://xxxx"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html?spm=ata.13261165.0.0.6a9072d111Nj92" target="_blank" rel="noopener">注册</a></h4><ul>
+<li>app 中注册自己要支持的域名</li>
+<li>在自己域名的根目录下配置一个 apple-app-site-associatio 文件。</li>
+</ul>
+<h4 id="适用性-2"><a href="#适用性-2" class="headerlink" title="适用性"></a>适用性</h4><p>只在IOS 9 以上</p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>唤端时没有弹窗提示，可减少一部分用户流失</li>
+<li>对于没有安装应用的用户，点击链接就会直接打开对应的页面，可引导到中转页，一定程度解决URL Scheme无法判断唤端失败问题。</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>只能在IOS 上用</li>
+<li>只能由用户主动触发。比如浏览器扫码打开页面，没有办法由页面直接唤起app，需要用户手动点击页面按钮才能唤起。</li>
+</ul>
+<h2 id="App-Links"><a href="#App-Links" class="headerlink" title="App Links"></a><a href="https://developer.android.com/training/app-links#add-app-links" target="_blank" rel="noopener">App Links</a></h2><p>安卓版的Universal Link。</p>
+<h2 id="wx-launchApplication"><a href="#wx-launchApplication" class="headerlink" title="wx.launchApplication"></a>wx.launchApplication</h2><p>微信JSSDK隐藏API。</p>
+<h4 id="适用性-3"><a href="#适用性-3" class="headerlink" title="适用性"></a>适用性</h4><p>IOS，Android 微信浏览器环境。仅限腾讯系50个应用白名单，微信版本大于6.5.16</p>
+<p><strong>在微信环境下，URL Scheme会被拦截，无法唤起应用。Universal Link/App Links均无效。</strong></p>
+<h2 id="H5唤端兼容"><a href="#H5唤端兼容" class="headerlink" title="H5唤端兼容"></a>H5唤端兼容</h2><h4 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</span><br><span class="line">iframe.frameborder = <span class="string">'0'</span>;</span><br><span class="line">iframe.style.cssText = <span class="string">'display: none;border: none;width: 0;height: 0'</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">iframe.src = <span class="string">'zhihu://xxx'</span></span><br></pre></td></tr></table></figure>
+<p>即使没有安装app，当前页面也不会跳转到错误的页面</p>
+<h4 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h4><p>IOS 9 以上safari中，不支持iframe唤起，可以用a标签，并模拟点击事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">a.setAttribute(<span class="string">'href'</span>, url);</span><br><span class="line">a.style.display = <span class="string">'none'</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.createEvent(<span class="string">'HEMLEvents'</span>);</span><br><span class="line">e.initEvent(<span class="string">'click'</span>, <span class="literal">false</span>, <span class="literal">false</span>);</span><br><span class="line">a.dispatchEvent(e);</span><br></pre></td></tr></table></figure>
+
+<h4 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h4><p>对于Intent和Universal Link，App Links可以直接设置window.location.href方式跳转，即使没有安装app也不会跳转到错误页面。</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isWeixin) &#123;</span><br><span class="line">    <span class="keyword">if</span> (weixinVersion &gt;= <span class="number">7.0</span><span class="number">.12</span>) &#123;</span><br><span class="line">        wx-open-launch-app <span class="comment">// https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weixinVersion &gt;= <span class="number">6.5</span><span class="number">.16</span> &amp;&amp; HOST_WHITE) &#123;</span><br><span class="line">        wx.launchApplication</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 引导浏览器打开页面</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (isIOS) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isIOSVersion &gt;= <span class="number">9</span>) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.href = Universal Link</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        iframe.src = URL Scheme</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (isAndroid) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isChrome) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.href = Intent</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        iframe.src = URL Scheme</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://juejin.im/post/5eeb785251882565a762e50f" target="_blank" rel="noopener">揭秘手淘召唤术</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/h5%EF%BC%8Cmobile/" rel="tag"># h5，mobile</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/15/fetch/" rel="prev" title="fetch">
+      <i class="fa fa-chevron-left"></i> fetch
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#唤端"><span class="nav-number">1.</span> <span class="nav-text">唤端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方案"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-Scheme"><span class="nav-number">2.1.</span> <span class="nav-text">URL Scheme</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scheme-注册"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Scheme 注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用性"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">适用性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intent"><span class="nav-number">2.2.</span> <span class="nav-text">Intent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#适用性-1"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">适用性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Universal-Link"><span class="nav-number">2.3.</span> <span class="nav-text">Universal Link</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用性-2"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">适用性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">2.3.0.4.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App-Links"><span class="nav-number">2.4.</span> <span class="nav-text">App Links</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-launchApplication"><span class="nav-number">2.5.</span> <span class="nav-text">wx.launchApplication</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#适用性-3"><span class="nav-number">2.5.0.1.</span> <span class="nav-text">适用性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H5唤端兼容"><span class="nav-number">2.6.</span> <span class="nav-text">H5唤端兼容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iframe"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">iframe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a标签"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">a标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-location"><span class="nav-number">2.6.0.3.</span> <span class="nav-text">window.location</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Abby</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Abby</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
